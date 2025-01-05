@@ -1,11 +1,16 @@
 import "./css/general.css"
-import task, {list} from "./js/todo" 
+import navBar from "./GUI/navbar";
+import task, {list} from "./logic/todo" 
+
+const innitApp = function (){
+    const body = document.body;
+    body.appendChild(navBar);
+}();
 
 
-let tomatoes = new task('Buy tomatoes', 'asd', '2024-12-31', 'High');
-let shopping = new list("Shopping list");
-shopping.addTask(tomatoes);
-shopping.printList();
+
+
+
 
 
 

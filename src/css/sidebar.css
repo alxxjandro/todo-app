@@ -1,40 +1,44 @@
 
-body > div.sideBar{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 /* sideBar */
 body > div.sideBar{
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    padding-top: 2rem;
     width: 200px; 
     transition: width 1s ease; 
-    border: solid 1px green;
+    border: solid 1px blue;
+    align-items: center;
 }
 
 /* sideBar while collapsed */
 body > div.sideBar.collapsed{
-    border: solid 1px blue;
     width: 100px;
 }
 
-.sideBar > div > button{
+/* toggle button rotation */
+.sideBar > div > div > button{
     transition: opacity 0.2s ease, transform .5s ease;
-    opacity: 1; 
 }
 
 .sideBar > div > img{
-    transition: transform 0.3s ease;
-}
-
-.sideBar.collapsed > div:first-child > button {
-    transform: rotate(180deg);
+    height: 25px;
+    transition: transform 1s ease;
 }
 
 .sideBar.collapsed > .dashboardBtn > button,
-.sideBar.collapsed > .todayBtn > button{
+.sideBar.collapsed > .todayBtn > button,
+.sideBar.collapsed > .importantBtn > button{
     opacity: 0; 
     pointer-events: none; 
+}
+
+.sideBar > div > button{
+    opacity: 1; 
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1.1rem;
+    transition: opacity 1s ease;
 }
 
 .sideBar.collapsed > div > img{
@@ -42,7 +46,7 @@ body > div.sideBar.collapsed{
 }
 
 /* change the toggle button direction */
-body > div.sideBar.collapsed > div > button.toggleBtn{
+body > div.sideBar.collapsed > div > div > button.toggleBtn{
     transform: rotate(360deg);
 }
 
@@ -53,10 +57,11 @@ div.sideBar > div > img{
 
 /* the buttons within the sideBar */
 .sideBar > div {
+    min-width: 80%;
+    border: solid 1px red;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    width: 100%;
 }
 
 .sideBar.collapsed > div{
@@ -75,12 +80,23 @@ div.sideBar > div > img{
 
 /* Toggle button and its container */
 div.sideBar > div:first-child{
-    justify-content: end;
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
 }
 
 .toggleBtn{
     transform: rotate(180deg);
+    padding: 0px;
+    max-width: 32px;
+    max-height: 32px;
     background-color: transparent;
+    display: flex;
 }
 
+.toggleBtn > img{
+    display: flex;
+    justify-self: center;
+}
 

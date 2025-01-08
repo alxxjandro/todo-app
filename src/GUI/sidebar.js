@@ -32,7 +32,7 @@ const sideBar = function (){
 
     //making the button functional
     toggleMenuBtn.addEventListener("click",() =>{
-        dashboardBtn.querySelector("button").classList.toggle("hidden");
+
         container.classList.toggle("collapsed");
     })
 

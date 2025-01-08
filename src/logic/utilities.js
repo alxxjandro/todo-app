@@ -1,5 +1,5 @@
 
-const createElement = function (element,content, classList = null, container = null){
+const createElem = function (element,content, classList = null, container = null){
     const body = document.body;
     const div = document.createElement("div");
 
@@ -21,4 +21,4 @@ const createElement = function (element,content, classList = null, container = n
     return div;
 } 
 
-export default createElement;
+export default createElem;

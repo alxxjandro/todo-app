@@ -2,16 +2,19 @@
 .navbar{
     max-width: 100%;
     border: solid 1px red;
+    
+    /*
     margin: 1rem;
     border-radius: 20px;
-    height: 60px;
+    */
+
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .navbarTitle{
-
+    letter-spacing: .2rem;
 }
 
 .addButton > button{

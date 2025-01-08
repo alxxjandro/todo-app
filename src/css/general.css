@@ -2,14 +2,25 @@ body{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100px 100px 1fr; 
+    grid-template-rows:  60px 1fr;
+
 }
 
-h1{
+/* narBar */
+body > div:first-child{
+    grid-column: 1/-1;
+}
+
+h1,
+h2,
+h3,
+p,
+button{
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: .2rem;
-    margin: 0;
-}
-
-p{
+    border: none;
     margin: 0;
 }

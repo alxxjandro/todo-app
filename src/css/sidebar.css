@@ -6,9 +6,11 @@ body > div.sideBar{
     gap: .7rem;
     padding-top: 2rem;
     width: 200px; 
-    transition: width 1s ease; 
+    transition: width .5s ease-out; 
     border: solid 1px blue;
-    align-items: center;
+    align-items: center; 
+    color: var(--textColor);
+    background-color: var(--bgColorTwo);
 }
 
 /* sideBar while collapsed */
@@ -16,14 +18,26 @@ body > div.sideBar.collapsed{
     width: 100px;
 }
 
-/* toggle button rotation */
+/* Toggle button and its container */
+div.sideBar > div:first-child{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+}
+
+/* toggle sidebar button  */
 .sideBar > div > div > button{
     transition: opacity 0.2s ease, transform .5s ease;
 }
 
+body > div.sideBar.collapsed > div > div > button.toggleBtn{
+    transform: rotate(360deg);
+}
+
+/* icons */
 .sideBar > div > img{
-    height: 25px;
-    transition: transform 1s ease;
+    transition: transform .35s ease;
 }
 
 .sideBar.collapsed > .dashboardBtn > button,
@@ -38,52 +52,35 @@ body > div.sideBar.collapsed{
     cursor: pointer;
     background-color: transparent;
     font-size: 1.1rem;
-    transition: opacity 1s ease;
+    transition: opacity .3s ease;
 }
 
 .sideBar.collapsed > div > img{
     transform: translate(23px);
 }
 
-/* change the toggle button direction */
-body > div.sideBar.collapsed > div > div > button.toggleBtn{
-    transform: rotate(360deg);
-}
-
-/* Icons on the sideBar */
-div.sideBar > div > img{
-    width: 2rem;
-}
-
 /* the buttons within the sideBar */
 .sideBar > div {
-    min-width: 80%;
-    border: solid 1px red;
+    min-width: 65%;
+    padding: .3rem 0 .3rem .2rem;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: start;
+}
+
+.sideBar > .sideBarText{
+    padding: 1rem 0 !important;
     justify-content: center;
 }
 
 .sideBar.collapsed > div{
-    justify-content: center;
-}
-
-.sideBar > div > button{
-    width: 50%;
+    max-width: 70%;
+    padding: .3rem 0 .3rem 0;
 }
 
 .sideBar > div > img,
 .toggleBtn > img {
-    filter: invert(1);
     cursor: pointer;
-}
-
-/* Toggle button and its container */
-div.sideBar > div:first-child{
-    display: flex;
-    flex-direction: row ;
-    align-items: center;
-    justify-content: center;
 }
 
 .toggleBtn{
@@ -97,6 +94,4 @@ div.sideBar > div:first-child{
 
 .toggleBtn > img{
     display: flex;
-    justify-self: center;
 }
-

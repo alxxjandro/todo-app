@@ -1,7 +1,7 @@
 
 .navbar{
     max-width: 100%;
-    background-color: var(--bgColorTwo);
+    background-color: var(--bgColorOne);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -38,4 +38,18 @@
 .menuButton:active,
 .addButton > button:active{
     transform: scale(1.1);
+}
+
+.githubLogo > a > img {
+    width: 30px;
+    transition: .2s width ease;
+}
+
+a > img {
+    width: 100%;
+}
+
+.githubLogo > a > img:hover{
+    width: 35px;
+    opacity: .8;
 }

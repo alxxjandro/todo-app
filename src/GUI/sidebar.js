@@ -43,8 +43,8 @@ const sideBar = function (){
     //making the button functional
     toggleMenuBtn.addEventListener("click",() =>{
         container.classList.toggle("collapsed");
+        document.body.classList.toggle("close");
     })
-
     return container;
 }();
 

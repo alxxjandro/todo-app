@@ -118,3 +118,27 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
     background-color: var(--bgColorTwo);
     transition: background-color .1s ease;
 }
+
+.addProject{
+    border: dashed 2px var(--textColor);
+    border-radius: 5px;
+    color: var(--textColor);
+    transition: transform .2s ease;
+}
+
+.addProject:hover{
+    background-color: rgba(255, 255, 255, 0.103);
+    transform: scale(1.02);
+    border-radius: 5px;
+}
+
+.addProject:active{
+    background-color:var(--bgColorTwo);
+}
+
+.addProject > button {
+    cursor: pointer;
+    width: 100%;
+    padding: .4rem 1rem;
+    margin: 0 auto;
+}

@@ -45,6 +45,9 @@ const sideBar = function (){
         container.classList.toggle("collapsed");
         document.body.classList.toggle("close");
     })
+
+    //adding a button to add create projects
+    const addProject = createElem("button",["+"],["addProject"],container);
     return container;
 }();
 

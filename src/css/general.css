@@ -7,8 +7,8 @@ body{
     grid-template-rows:  60px 1fr;
     background-color: var(--bgColorOne);
     --textColor: #FCFFF7;
-    --bgColorTwo: #314154;
-    --bgColorOne: #2A3D45;
+    --bgColorOne: #243141;
+    --bgColorTwo: #162338;
 }
 
 /* narBar */

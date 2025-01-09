@@ -1,16 +1,14 @@
 
 .navbar{
     max-width: 100%;
-    border: solid 1px red;
-    
-    /*
-    margin: 1rem;
-    border-radius: 20px;
-    */
-
+    background-color: var(--bgColorTwo);
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.navbar span{
+    color: white;
 }
 
 .navbarTitle{
@@ -18,9 +16,11 @@
 }
 
 .addButton > button{
-    border: solid 3px black;
+    border: solid 2px white;
+    background-color: var(--bgColorTwo);
     font-size: 1.2rem;
     font-weight: bold;
+    padding: .1rem .4rem 0 .4rem;
     border-radius: 50px;
 }
 

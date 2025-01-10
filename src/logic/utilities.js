@@ -45,4 +45,30 @@ export const addButtonListener = function(button, callback) {
         return callback();
     });
 };
+
+export const createInput = function(_label, _type, _id, _name, _placeholder = null, container = null){
+    const div = document.createElement("div");
+
+    const input = Object.assign(document.createElement("input"), {
+         type : _type,
+         id : _id, 
+         name : _name, 
+         placeholder : _placeholder
+        });
+
+    const label = Object.assign(document.createElement("label"),{ 
+        htmlFor : _id,
+        textContent : _label 
+    });
+    
+    div.appendChild(label);
+    div.appendChild(input);
+
+    if (container){
+
+        container.appendChild(div);
+    }
+    return div;
+}
+
 export default createElem;

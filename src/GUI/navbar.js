@@ -1,5 +1,5 @@
 import createElem, { createLinkImg,addButtonListener } from "../logic/utilities";
-import createProject from "../logic/createProjectMenu";
+import createProject from "./createProjectMenu";
 import "../css/navbar.css"
 import images from "./imgs";
 

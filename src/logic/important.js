@@ -1,7 +1,9 @@
+import createElem, * as utils from "../logic/utilities";
 
 const goToImportant = function(){
-    console.log("important");
-    return "important";
+    const contentDiv = document.querySelector(".content");
+    contentDiv.innerHTML = "";
+    contentDiv.appendChild(createElem("h1",["important"]));
 }
 
 export default goToImportant;

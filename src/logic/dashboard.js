@@ -1,7 +1,9 @@
+import createElem, * as utils from "../logic/utilities";
 
 const goToDashboard = function(){
-    console.log("dashBoard");
-    return "dashBoard";
+    const contentDiv = document.querySelector(".content");
+    contentDiv.innerHTML = "";
+    contentDiv.appendChild(createElem("h1",["dashBoard"]));
 };
 
 export default goToDashboard;

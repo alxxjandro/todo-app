@@ -1,6 +1,6 @@
 import images from "../GUI/imgs";
 import createElem, * as utils from "../logic/utilities";
-import createProject from "../logic/createProjectMenu";
+import createProject from "./createProjectMenu";
 import {createButtonWithImage} from "../logic/utilities"
 import "../css/sidebar.css";
 import goToDashboard from "../logic/dashboard";

@@ -1,6 +1,8 @@
+import createElem from "./utilities";
 
 const createProject = function (){
-    return "test";
-}();
+    console.log("createProjectButton")
+    return "createProjectButton";
+};
 
 export default createProject;

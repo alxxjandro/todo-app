@@ -29,4 +29,20 @@ export const createButtonWithImage = function(text, className, imgSrc, parent){
     return button;
 };
 
+export const createLinkImg = function(link,imgSrc,className,container){
+    const aElem = createElem("a",[""],[className],container);
+    const img = document.createElement("img");
+    img.src = imgSrc;
+
+    aElem.querySelector("a").href = `${link}`;
+    aElem.querySelector("a").target = "_blank";
+    aElem.querySelector("a").appendChild(img);
+
+}
+
+export const addButtonListener = function(button, callback) {
+    button.addEventListener("click", () => { 
+        return callback();
+    });
+};
 export default createElem;

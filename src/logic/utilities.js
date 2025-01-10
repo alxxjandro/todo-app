@@ -21,4 +21,12 @@ const createElem = function (element,content, classList = null, container = null
     return div;
 } 
 
+export const createButtonWithImage = function(text, className, imgSrc, parent){
+    const button = createElem("button", [text], [className], parent);
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    button.appendChild(img);
+    return button;
+};
+
 export default createElem;

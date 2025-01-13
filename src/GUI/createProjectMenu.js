@@ -1,11 +1,14 @@
 import createElem, * as utils from "../logic/utilities";
+import goToDashboard from "../logic/dashboard";
+import goToUpcoming from "../logic/upcoming";
+import goToImportant from "../logic/important";
 import addTask from "../logic/createProject";
 import "../css/createProject.css"
 
 const createProject = function (){
-    const contentDiv = Object.assign(document.querySelector(".content"),{ innerHTML : "" });;
-    const container = Object.assign(document.createElement("div"),{ className : "newProjectContainer"});
 
+    const contentDiv = document.querySelector(".content");
+    const container = Object.assign(document.createElement("div"),{ className : "newProjectContainer"});
     const textTitle = createElem("h2",["Create a new project"],["newProjectTitle"],container);
     const projectForm = utils.createInput(
         "Project Name",
@@ -36,6 +39,11 @@ const createProject = function (){
 
     submitBtn.addEventListener("click", () =>{
         addTask(document.querySelector("#projectName").value);
+    })
+    
+    cancelBtn.addEventListener("click", () => {
+        container.remove();
+        document.querySelector(".overlay").remove();
     })
 
     contentDiv.appendChild(container);

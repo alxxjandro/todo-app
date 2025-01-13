@@ -63,6 +63,7 @@ export default class Task {
 
 }
 
+export const allTasks = [];
 
 export class list {
     #title;

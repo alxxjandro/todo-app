@@ -42,9 +42,6 @@ export const createLinkImg = function(link,imgSrc,className,container){
 
 export const addButtonListener = function(button, callback) {
     button.addEventListener("click", () => { 
-        if (callback == "createProject"){
-            document.querySelector(".overlay").classList.add("hidden")
-        }
         return callback();
     });
 };

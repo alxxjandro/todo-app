@@ -10,7 +10,20 @@ const navBar = function(){
     createLinkImg("https://github.com/alxxjandro/todo-app",images.githubLogo,"githubLogo",container);
     const navBarTitle = createElem("h1",["LISTIFY"],["navbarTitle"],container);
     const addButton = createElem("button",["+"],["addButton"],container);
-    addButtonListener(addButton,createProject);
+
+    addButton.addEventListener("click", () =>{
+        console.log("Ive")
+        if(!document.querySelector(".overlay")){
+            document.body.appendChild(
+                Object.assign(document.createElement("div"),{ className : "overlay" })
+            );
+        }
+
+        if(!document.querySelector(".newProjectContainer")){
+            createProject();
+        }
+    })
+    
 
     return container;
 }();

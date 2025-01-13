@@ -7,7 +7,6 @@ import goToDashboard from "../logic/dashboard";
 import goToUpcoming from "../logic/upcoming";
 import goToImportant from "../logic/important";
 
-
 const sideBar = (function () {
     
     // Sidebar container
@@ -44,7 +43,20 @@ const sideBar = (function () {
     utils.addButtonListener(dashboardBtn, goToDashboard);
     utils.addButtonListener(upcomingBtn,goToUpcoming);
     utils.addButtonListener(importantBtn,goToImportant);
-    utils.addButtonListener(addProjectBtn,createProject);
+    
+    //sideBar + button for adding new projects
+    addProjectBtn.addEventListener("click", () =>{
+        console.log("Ive")
+        if(!document.querySelector(".overlay")){
+            document.body.appendChild(
+                Object.assign(document.createElement("div"),{ className : "overlay" })
+            );
+        }
+
+        if(!document.querySelector(".newProjectContainer")){
+            createProject();
+        }
+    })
 
     return container;
 })();

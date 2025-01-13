@@ -9,6 +9,8 @@ const innitApp = function (){
     const body = document.body;
     body.appendChild(navBar);   
     body.appendChild(sideBar);
+    body.appendChild(Object.assign(document.createElement("div"),{ className : "overlay" }));
+
     const content = body.appendChild(document.createElement("div"));
     content.classList.add("content");
 

@@ -42,6 +42,9 @@ export const createLinkImg = function(link,imgSrc,className,container){
 
 export const addButtonListener = function(button, callback) {
     button.addEventListener("click", () => { 
+        if (callback == "createProject"){
+            document.querySelector(".overlay").classList.add("hidden")
+        }
         return callback();
     });
 };
@@ -65,7 +68,6 @@ export const createInput = function(_label, _type, _id, _name, _placeholder = nu
     div.appendChild(input);
 
     if (container){
-
         container.appendChild(div);
     }
     return div;

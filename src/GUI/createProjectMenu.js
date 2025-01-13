@@ -1,4 +1,5 @@
 import createElem, * as utils from "../logic/utilities";
+import addTask from "../logic/createProject";
 import "../css/createProject.css"
 
 const createProject = function (){
@@ -20,8 +21,8 @@ const createProject = function (){
 
     const cancelBtn = btnsContainer.appendChild(
         Object.assign(document.createElement("button"),{
-            innerText : "Cancel",
-            className : "cancelBtnInput"
+            innerText : "Cancel" ,
+            className : "cancelBtnInput" , 
         })
     )
 
@@ -33,8 +34,11 @@ const createProject = function (){
         })
     )
 
-    contentDiv.appendChild(container);
+    submitBtn.addEventListener("click", () =>{
+        addTask(document.querySelector("#projectName").value);
+    })
 
+    contentDiv.appendChild(container);
 };
 
 export default createProject;

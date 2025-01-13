@@ -14,7 +14,10 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem; 
+    border: solid 2px var(--bgColorOne);
+    z-index: 20;
 }
+
 
 .newProjectTitle {
     font-size: 1.2rem;
@@ -61,4 +64,20 @@ input#projectName:focus{
     font-size: .8rem;
     border-radius: 6px;
     background-color: var(--bgColorOne);
+}
+.btnsContainer > button:first-child:hover{
+    background-color: rgba(118, 0, 0, 0.731);
+}
+.btnsContainer > button + button:hover{
+    background-color: rgba(0, 128, 0, 0.664);
+}
+
+.btnsContainer > button:first-child,
+.btnsContainer > button + button {
+    transition: all .3s ease;
+}
+
+.btnsContainer > button:first-child,
+.btnsContainer > button + button {
+    transition: all .3s ease;
 }

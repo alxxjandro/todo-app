@@ -30,15 +30,35 @@ const createProject = function (){
     )
 
     const submitBtn = btnsContainer.appendChild(
-        Object.assign(document.createElement("button"),{
-            innerText : "Create",
+        Object.assign(document.createElement("input"),{
+            value : "Create",
+            type : "submit",
             className : "npBtnInput",
-            type : "input"
+            required : true
         })
     )
 
     submitBtn.addEventListener("click", () =>{
-        addTask(document.querySelector("#projectName").value);
+        let task = document.querySelector("#projectName").value;
+        let input = document.querySelector("input");
+
+        if (!task == ""){
+            addTask(task);
+            goToDashboard();
+            document.querySelector(".overlay").remove();
+            return;         
+        } 
+        input.classList.add("invalid");
+
+        for (let i = 0; i < 4; i++) {
+            setTimeout(() => {
+                input.classList.add("invalid");
+                setTimeout(() => {
+                    input.classList.remove("invalid");
+                }, 150); // Se quita después de 300ms
+            }, i * 300); // Cada ciclo comienza cada 600ms
+        }
+
     })
     
     cancelBtn.addEventListener("click", () => {

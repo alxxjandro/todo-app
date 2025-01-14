@@ -43,6 +43,7 @@ input#projectName{
     background-color: var(--bgColorOne);
     color: var(--textColor);
     outline: none;
+    transition: border-color .2s ease;
 }
 
 input#projectName:focus{
@@ -54,6 +55,11 @@ input#projectName:focus{
     display: flex;
     justify-content: end;
     gap: 1rem;
+}
+
+.npBtnInput{
+    color: var(--textColor);
+    border: none;
 }
 
 .npBtnInput, 
@@ -68,16 +74,16 @@ input#projectName:focus{
 .btnsContainer > button:first-child:hover{
     background-color: rgba(118, 0, 0, 0.731);
 }
-.btnsContainer > button + button:hover{
+.btnsContainer > button + input:hover{
     background-color: rgba(0, 128, 0, 0.664);
 }
 
 .btnsContainer > button:first-child,
-.btnsContainer > button + button {
+.btnsContainer > button + input {
     transition: all .3s ease;
 }
 
 .btnsContainer > button:first-child,
-.btnsContainer > button + button {
+.btnsContainer > button + input {
     transition: all .3s ease;
 }

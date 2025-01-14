@@ -12,7 +12,6 @@ const navBar = function(){
     const addButton = createElem("button",["+"],["addButton"],container);
 
     addButton.addEventListener("click", () =>{
-        console.log("Ive")
         if(!document.querySelector(".overlay")){
             document.body.appendChild(
                 Object.assign(document.createElement("div"),{ className : "overlay" })

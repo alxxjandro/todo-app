@@ -10,6 +10,7 @@ body{
     --textColor: #FCFFF7;
     --bgColorOne: #243141;
     --bgColorTwo: #162338;
+    --colorRed: rgb(195, 0, 0);
     transition: grid-template-columns 0.5s ease-out;
 } 
 
@@ -59,4 +60,9 @@ label{
     background-color: rgba(0, 0, 0, 0.5); 
     backdrop-filter: blur(5px);        
     z-index: 10;
+}
+
+.invalid{
+    border-color: var(--colorRed) !important;
+    transition: border-color .2s ease;
 }

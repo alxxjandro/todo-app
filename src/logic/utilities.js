@@ -53,7 +53,8 @@ export const createInput = function(_label, _type, _id, _name, _placeholder = nu
          type : _type,
          id : _id, 
          name : _name, 
-         placeholder : _placeholder
+         placeholder : _placeholder,
+         required: true
         });
 
     const label = Object.assign(document.createElement("label"),{ 

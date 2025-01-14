@@ -46,7 +46,6 @@ const sideBar = (function () {
     
     //sideBar + button for adding new projects
     addProjectBtn.addEventListener("click", () =>{
-        console.log("Ive")
         if(!document.querySelector(".overlay")){
             document.body.appendChild(
                 Object.assign(document.createElement("div"),{ className : "overlay" })

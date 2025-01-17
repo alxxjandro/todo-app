@@ -2,7 +2,7 @@ import createElem, * as utils from "../logic/utilities";
 import goToDashboard from "../logic/dashboard";
 import goToUpcoming from "../logic/upcoming";
 import goToImportant from "../logic/important";
-import addTask from "../logic/createProject";
+import addList from "../logic/createProject";
 import "../css/createProject.css"
 
 const createProject = function (){
@@ -43,22 +43,22 @@ const createProject = function (){
         let input = document.querySelector("input");
 
         if (!task == ""){
-            addTask(task);
+            addList(task);
             goToDashboard();
             document.querySelector(".overlay").remove();
             return;         
         } 
         input.classList.add("invalid");
 
-        for (let i = 0; i < 4; i++) {
+        //flash a red border when an invalid name its provided 
+        for (let i = 0; i < 3; i++) {
             setTimeout(() => {
                 input.classList.add("invalid");
                 setTimeout(() => {
                     input.classList.remove("invalid");
-                }, 150); // Se quita después de 300ms
-            }, i * 300); // Cada ciclo comienza cada 600ms
+                }, 150); 
+            }, i * 300); 
         }
-
     })
     
     cancelBtn.addEventListener("click", () => {

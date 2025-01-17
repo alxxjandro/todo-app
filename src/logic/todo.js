@@ -97,4 +97,8 @@ export class list {
         }
     }
 
+     get getAmountOfTask(){
+        return this.#tasks.length;
+    }
+
 }

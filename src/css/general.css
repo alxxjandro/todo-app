@@ -10,6 +10,7 @@ body{
     --textColor: #FCFFF7;
     --bgColorOne: #243141;
     --bgColorTwo: #162338;
+    --bgColorThree: #1E2A38;
     --colorRed: rgb(195, 0, 0);
     transition: grid-template-columns 0.5s ease-out;
 } 

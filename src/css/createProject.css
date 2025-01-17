@@ -87,3 +87,31 @@ input#projectName:focus{
 .btnsContainer > button + input {
     transition: all .3s ease;
 }
+
+.listsContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); 
+    gap: 10px; 
+    padding: 10px; 
+    justify-content: center;
+
+}
+
+.taskContent {
+    height: 200px;
+    background-color: var(--bgColorThree); 
+    border-radius: 8px; 
+    border: 3px solid var(--bgColorTwo); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efecto al pasar el cursor */
+.taskContent:hover {
+    background-color: var(--bgColorTwo); /* Azul más vibrante */
+    transform: translateY(-5px); /* Efecto de elevación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}

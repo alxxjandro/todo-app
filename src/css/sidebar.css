@@ -3,7 +3,7 @@
 body > div.sideBar{
     display: flex;
     flex-direction: column;
-    gap: .7rem;
+    gap: 1rem;
     padding-top: 2rem;
     width: 250px; 
     transition: width .5s ease-out; 
@@ -70,6 +70,14 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
 .sideBar > .sideBarText{
     padding: 1rem 0 !important;
     justify-content: center;
+
+}
+
+.sidebarsPjs{   
+    flex-direction: column !important;
+    width: 90%;
+    align-items: center;
+    gap: .7rem;
 }
 
 .sideBar.collapsed > div{
@@ -97,7 +105,8 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
 
 .dashboardBtn,
 .todayBtn,
-.importantBtn{
+.importantBtn,
+.projectBtn > button{
     border-radius: 5px;
     border: solid 2px var(--bgColorTwo);
     transition: border .3s ease, background-color .3s ease;
@@ -105,7 +114,8 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
 
 .dashboardBtn:hover,
 .todayBtn:hover,
-.importantBtn:hover{
+.importantBtn:hover,
+.projectBtn > button:hover{
     border: solid 2px rgba(255, 255, 255, 0.126);
     background-color: rgba(255, 255, 255, 0.103);
     border-radius: 5px;
@@ -114,7 +124,8 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
 
 .dashboardBtn:active,
 .todayBtn:active,
-.importantBtn:active{
+.importantBtn:active,
+.projectBtn > button:active{
     background-color: var(--bgColorTwo);
     transition: background-color .1s ease;
 }
@@ -141,4 +152,31 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
     width: 100%;
     padding: .4rem 1rem;
     margin: 0 auto;
+}
+
+.sideBar .projectBtn > button{
+    background-color: var(--bgColorTwo);
+    font-size: .9rem;
+    min-width: 160px;
+    max-width: 200px;
+    padding: 10px;
+    overflow: auto;
+    text-overflow: ellipsis;
+    transition: min-width .4s ease, max-width 0.3s ease, background-color .3s ease, transform .1s ease !important;
+    border: solid 3px var(--bgColorOne);
+}
+
+.sideBar .projectBtn > button:hover{
+    background-color: var(--bgColorOne);
+}
+
+.sideBar .projectBtn > button:active{
+    transform: scale(1.1);
+    transition: transform .1s ease;
+}
+
+.sideBar.collapsed .projectBtn > button{
+    transition: min-width .4s ease, max-width 0.3s ease;
+    max-width: 70px;
+    min-width: 0px;
 }

@@ -2,7 +2,7 @@ import createElem, * as utils from "../logic/utilities";
 import goToDashboard from "../logic/dashboard";
 import goToUpcoming from "../logic/upcoming";
 import goToImportant from "../logic/important";
-import addList from "../logic/createProject";
+import addList, { addToSidebar } from "../logic/createProject";
 import "../css/createProject.css"
 
 const createProject = function (){
@@ -44,6 +44,7 @@ const createProject = function (){
 
         if (!task == ""){
             addList(task);
+            addToSidebar(task);
             goToDashboard();
             document.querySelector(".overlay").remove();
             return;         

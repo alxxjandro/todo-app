@@ -31,7 +31,8 @@ const sideBar = (function () {
     const addProjectBtn = createElem("button", ["+"], ["addProject"], container);
    
     // Projects section
-    createElem("h3", ["Projects"], ["sideBarText"], container);
+    const projectText = createElem("h3", ["Projects"], ["sideBarText","sidebarsPjs"], container);
+    const pjsContainer = createElem("div",[],["sideBarProjects"],projectText);
 
     // Toggle menu functionality
     toggleMenuBtn.addEventListener("click", () => {

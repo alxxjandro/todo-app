@@ -20,5 +20,10 @@ export const loadDashboard = function (dashboardTasks){
 
 }
 
+export const addToSidebar = function (listName){
+    const container = document.querySelector(".sidebarsPjs");
+    let component = createElem("button",[`${listName}`],["projectBtn"],container);
+}
+
 export const dashboardTasks = [];
 export default addList;

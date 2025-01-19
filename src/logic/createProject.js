@@ -27,27 +27,63 @@ export const loadDashboardLists = function (dashboardTasks){
     const div = Object.assign(document.createElement("div"),{ className : "listsContainer"});
     container.appendChild(div);
 
-    dashboardTasks.forEach(task => {
-        addToDashboard(task,div);
+    dashboardTasks.forEach((task, index) => {
+        addToDashboard(task,div,index);
     });
 }
 
 //given a list name, it deletes it from the GUI
-export const deleteFromDashboard = function (list){
-    let component = document.querySelector(`.task-${list.getTitle}`);
-    component.remove();
+export const deleteFromDashboard = function (index){
+    let component = document.querySelector(`.task-${index}`);
+    if (component) {
+        component.remove();
+    } else {
+        console.error(`Failed to delete the index at position ${index}`);
+    }
 }
 
-export const deleteFromSidebar = function (list){
-    let component = document.querySelector(`.task-sb-${list.getTitle}`);
-    component.remove();
+export const deleteFromSidebar = function (index){
+    let component = document.querySelector(`.task-sb-${index}`);
+    if (component){
+        component.remove();
+    } else{
+        console.error(`Failed to delete the index at position ${index}`);
+    }
 }
 
 //add the list to the projects section on the sidebar
-export const addToSidebar = function (listName){
-    const container = document.querySelector(".sidebarsPjs");
-    let component = createElem("button",[`${listName}`],["projectBtn",`task-sb-${listName}`],container);
+export const addToSidebar = function (listName,index){
+    if (!document.querySelector(`.task-sb-${index}`)){
+        const container = document.querySelector(".sidebarsPjs");
+        let component = createElem("button",[`${listName}`],["projectBtn",`task-sb-${index}`],container);
+    }
 }
+
+//function to handle updating the indices once a project is deleted
+export const refreshIndeces = function () {
+    if (dashboardTasks.length) {
+        
+        const dashboardElements = document.querySelectorAll(".taskContent");
+        const sidebarElements = document.querySelectorAll(".projectBtn");
+        
+        dashboardTasks.forEach((task, index) => {
+            if (dashboardElements[index]) {
+                dashboardElements[index].className = `task-${index}`;
+                dashboardElements[index].classList.add("taskContent");
+            }
+
+            if (sidebarElements[index]) {
+                sidebarElements[index].className = `task-sb-${index}`;
+                sidebarElements[index].classList.add("projectBtn");
+            }
+        });
+
+        console.log("Indices refreshed.");
+    } else {
+        console.log("There is no project to refresh indices for.");
+    }
+};
+
 
 //array that contains all the lists
 export const dashboardTasks = [];

@@ -10,7 +10,8 @@ import addList, {
     deleteFromDashboard,
     addToSidebar,
     dashboardTasks,
-    deleteFromSidebar
+    deleteFromSidebar,
+    refreshIndeces
   } from "../logic/createProject";
 
 const createProject = function (){
@@ -48,14 +49,13 @@ const createProject = function (){
 
     //create a new div with the task name, 
     //append it to the array that holds all 
-    //of them and added to the dashboard
+    //of them and added to the dashboard and sidebar
     submitBtn.addEventListener("click", () =>{
         let list = document.querySelector("#projectName").value;
         let input = document.querySelector("input");
 
         if (!list == ""){
             addList(list);
-            addToSidebar(list);
             goToDashboard();
             document.querySelector(".overlay").remove();
             return;         
@@ -81,8 +81,14 @@ const createProject = function (){
     contentDiv.appendChild(container);
 };
 
-export const addToDashboard = function (list,div) {
-    let component = createElem("h3",[`${list.getTitle}`],["taskContent",`task-${list.getTitle}`],div);
+//also handles adding the button to the sidebar as well (last line)
+export const addToDashboard = function (list,div,index) {
+    
+    //gotta handle the case when projects contain spaces, maybe with passing the index 
+    //and using that as the task- class and not the name.
+    console.log(`INDEX -> ${index}`);
+    
+    let component = createElem("h3",[`${list.getTitle}`],["taskContent",`task-${index}`],div);
     let amountOfTask = createElem("p",[`${list.getAmountOfTask} Task's`],["taskDescription"],component);
     const delButton = Object.assign(document.createElement("img"),{src : images.trashcan});
     component.appendChild(delButton);
@@ -90,12 +96,20 @@ export const addToDashboard = function (list,div) {
     delButton.addEventListener("click", () => {
         deleteProject(list);
     })
+
+    addToSidebar(list.getTitle,index);
 }
 
-export const deleteProject = function(list){
-    deleteList(list);
-    deleteFromDashboard(list);
-    deleteFromSidebar(list);
-}
+export const deleteProject = function (list) {
 
+    let index = dashboardTasks.indexOf(list);
+    if (index != -1) {
+        deleteList(list);
+        deleteFromDashboard(index);
+        deleteFromSidebar(index);
+        refreshIndeces();
+    } else {
+        console.error("Couldn't find the project to delete");
+    }
+};
 export default createProject;

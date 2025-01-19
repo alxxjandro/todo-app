@@ -4,7 +4,8 @@ import rightArrow from "../icons/rightArrow.svg";
 import upcomingCalendar from "../icons/upcomingCalendar.svg";
 import dashboard from "../icons/dashboard.svg";
 import star from "../icons/star.svg";
-import githubLogo from "../icons/github.svg"
+import githubLogo from "../icons/github.svg";
+import trashcan from "../icons/trashcan.svg";
 
 const images = {
     addButton,
@@ -13,7 +14,8 @@ const images = {
     upcomingCalendar,
     dashboard,
     star,
-    githubLogo
+    githubLogo,
+    trashcan
 }
 
 export default images;

@@ -1,9 +1,17 @@
+import "../css/createProject.css"
 import createElem, * as utils from "../logic/utilities";
 import goToDashboard from "../logic/dashboard";
 import goToUpcoming from "../logic/upcoming";
 import goToImportant from "../logic/important";
-import addList, { addToSidebar } from "../logic/createProject";
-import "../css/createProject.css"
+import images from "./imgs";
+import addList, {
+    deleteList,
+    loadDashboardLists,
+    deleteFromDashboard,
+    addToSidebar,
+    dashboardTasks,
+    deleteFromSidebar
+  } from "../logic/createProject";
 
 const createProject = function (){
 
@@ -38,13 +46,16 @@ const createProject = function (){
         })
     )
 
+    //create a new div with the task name, 
+    //append it to the array that holds all 
+    //of them and added to the dashboard
     submitBtn.addEventListener("click", () =>{
-        let task = document.querySelector("#projectName").value;
+        let list = document.querySelector("#projectName").value;
         let input = document.querySelector("input");
 
-        if (!task == ""){
-            addList(task);
-            addToSidebar(task);
+        if (!list == ""){
+            addList(list);
+            addToSidebar(list);
             goToDashboard();
             document.querySelector(".overlay").remove();
             return;         
@@ -69,5 +80,22 @@ const createProject = function (){
 
     contentDiv.appendChild(container);
 };
+
+export const addToDashboard = function (list,div) {
+    let component = createElem("h3",[`${list.getTitle}`],["taskContent",`task-${list.getTitle}`],div);
+    let amountOfTask = createElem("p",[`${list.getAmountOfTask} Task's`],["taskDescription"],component);
+    const delButton = Object.assign(document.createElement("img"),{src : images.trashcan});
+    component.appendChild(delButton);
+    
+    delButton.addEventListener("click", () => {
+        deleteProject(list);
+    })
+}
+
+export const deleteProject = function(list){
+    deleteList(list);
+    deleteFromDashboard(list);
+    deleteFromSidebar(list);
+}
 
 export default createProject;

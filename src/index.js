@@ -2,6 +2,7 @@ import "./css/general.css";
 import navBar from "./GUI/navbar";
 import sideBar from "./GUI/sidebar";
 import goToDashboard from "./logic/dashboard";
+import addList from "./logic/createProject";
 import createProject from "./GUI/createProjectMenu";
 import task, {list} from "./logic/todo";
 
@@ -12,7 +13,10 @@ const innitApp = function (){
     const content = body.appendChild(document.createElement("div"));
     content.classList.add("content");
 
-    //load the dashboard by default
+    //load the default projects and go to the dashboard
+    addList("Shopping List");
+    addList("School assignments");
+    addList("Coding projects")
     goToDashboard();
 }();
 

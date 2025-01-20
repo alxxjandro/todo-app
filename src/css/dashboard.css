@@ -1,0 +1,8 @@
+.goToDashboard{
+    text-align: center;
+    padding: 2rem 2rem .8rem 2rem;
+}
+
+.goToDashboard > h1{
+    font-size: 1.5rem;
+}

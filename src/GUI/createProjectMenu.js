@@ -92,16 +92,21 @@ export const addToDashboard = function (list,div,index) {
     let amountOfTask = createElem("p",[`${list.getAmountOfTask} Task's`],["taskDescription"],component);
     const delButton = Object.assign(document.createElement("img"),{src : images.trashcan});
     component.appendChild(delButton);
+
+    //dashboard lists events listeners
+    component.addEventListener("click", () => {
+        console.log(`${list.getTitle}`);
+        //call function that loads the project
+    });
     
     delButton.addEventListener("click", () => {
         deleteProject(list);
     })
 
-    addToSidebar(list.getTitle,index);
+    addToSidebar(list,index);
 }
 
 export const deleteProject = function (list) {
-
     let index = dashboardTasks.indexOf(list);
     if (index != -1) {
         deleteList(list);

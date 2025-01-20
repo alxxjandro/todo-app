@@ -55,7 +55,12 @@ export const deleteFromSidebar = function (index){
 export const addToSidebar = function (listName,index){
     if (!document.querySelector(`.task-sb-${index}`)){
         const container = document.querySelector(".sidebarsPjs");
-        let component = createElem("button",[`${listName}`],["projectBtn",`task-sb-${index}`],container);
+        let component = createElem("button",[`${listName.getTitle}`],["projectBtn",`task-sb-${index}`],container);
+
+        //sidebar buttons event listener
+        component.addEventListener("click", () => {
+            console.log(`${listName.getTitle}`);
+        });
     }
 }
 
@@ -65,7 +70,7 @@ export const refreshIndeces = function () {
         
         const dashboardElements = document.querySelectorAll(".taskContent");
         const sidebarElements = document.querySelectorAll(".projectBtn");
-        
+
         dashboardTasks.forEach((task, index) => {
             if (dashboardElements[index]) {
                 dashboardElements[index].className = `task-${index}`;

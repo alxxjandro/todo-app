@@ -4,6 +4,7 @@ import goToDashboard from "../logic/dashboard";
 import goToUpcoming from "../logic/upcoming";
 import goToImportant from "../logic/important";
 import images from "./imgs";
+import loadProject from "../logic/loadproject";
 import addList, {
     deleteList,
     loadDashboardLists,
@@ -97,9 +98,11 @@ export const addToDashboard = function (list,div,index) {
     component.addEventListener("click", () => {
         console.log(`${list.getTitle}`);
         //call function that loads the project
+        loadProject(list);
     });
     
-    delButton.addEventListener("click", () => {
+    delButton.addEventListener("click", (e) => {
+        e.stopPropagation(); // stop it from executing loadProject(list)
         deleteProject(list);
     })
 
@@ -113,6 +116,7 @@ export const deleteProject = function (list) {
         deleteFromDashboard(index);
         deleteFromSidebar(index);
         refreshIndeces();
+        goToDashboard();
     } else {
         console.error("Couldn't find the project to delete");
     }

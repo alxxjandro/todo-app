@@ -30,8 +30,9 @@ div.sideBar > div:first-child{
     transition: opacity 0.2s ease, transform .5s ease;
 }
 
-body > div.sideBar.collapsed > div > div > button.toggleBtn{
-    transform: rotate(360deg);
+.sideBar.collapsed img:first-child{
+    transform: rotate(180deg);
+    transition: transform .2s ease;
 }
 
 /* icons */
@@ -91,7 +92,6 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
 }
 
 .toggleBtn{
-    transform: rotate(180deg);
     padding: 0px;
     max-width: 32px;
     max-height: 32px;
@@ -100,7 +100,9 @@ body > div.sideBar.collapsed > div > div > button.toggleBtn{
 }
 
 .toggleBtn > img{
+    transform: rotate(360deg);
     display: flex;
+    transition: transform .2s ease;
 }
 
 .dashboardBtn,

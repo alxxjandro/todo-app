@@ -1,5 +1,6 @@
 import createElem, * as utils from "../logic/utilities";
 import { addToDashboard } from "../GUI/createProjectMenu"
+import loadProject from "./loadproject";
 import todo, { list,allTasks } from "../logic/todo";
 import Task from "../logic/todo";
 import goToDashboard from "./dashboard";
@@ -60,6 +61,8 @@ export const addToSidebar = function (listName,index){
         //sidebar buttons event listener
         component.addEventListener("click", () => {
             console.log(`${listName.getTitle}`);
+            //call function that loads the project
+            loadProject(listName);
         });
     }
 }

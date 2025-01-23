@@ -9,7 +9,8 @@ const navBar = function(){
 
     createLinkImg("https://github.com/alxxjandro/todo-app",images.githubLogo,"githubLogo",container);
     const navBarTitle = createElem("h1",["LISTIFY"],["navbarTitle"],container);
-    const addButton = createElem("button",["+"],["addButton"],container);
+    //const addButton = createElem("button",["Create Project"],["addButton"],container);
+    const addButton = createElem("button", ["Create Project"], ["addButton"], container);
 
     addButton.addEventListener("click", () =>{
         if(!document.querySelector(".overlay")){

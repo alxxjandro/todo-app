@@ -28,7 +28,7 @@ const sideBar = (function () {
     const dashboardBtn = createButtonWithImage("Dashboard", "dashboardBtn", images.dashboard, container);
     const upcomingBtn = createButtonWithImage("Upcoming", "todayBtn", images.calendar, container);
     const importantBtn = createButtonWithImage("Important", "importantBtn", images.star, container);
-    const addProjectBtn = createElem("button", ["+"], ["addProject"], container);
+    const addProjectBtn = createElem("button", ["Create Project"], ["addProject"], container);
    
     // Projects section
     const projectText = createElem("h3", ["Projects"], ["sideBarText","sidebarsPjs"], container);

@@ -151,9 +151,8 @@ div.sideBar > div:first-child{
 
 .addProject > button {
     cursor: pointer;
-    width: 100%;
     padding: .4rem 1rem;
-    margin: 0 auto;
+    font-size: .9rem !important;    
 }
 
 .sideBar .projectBtn > button{
@@ -181,4 +180,9 @@ div.sideBar > div:first-child{
     transition: min-width .4s ease, max-width 0.3s ease;
     max-width: 70px;
     min-width: 0px;
+}
+
+.addProject{
+    align-items: center;
+    justify-content: center !important;
 }

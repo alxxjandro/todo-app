@@ -21,12 +21,12 @@
 }
 
 .addButton > button{
-    border: solid 2px white;
-    background-color: var(--bgColorTwo);
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: .1rem .4rem 0 .4rem;
-    border-radius: 50px;
+    background-color: var(--bgColorThree);
+    cursor: pointer;
+    padding: .4rem 1rem;
+    font-size: .9rem !important;  
+    border: solid 3px var(--bgColorTwo);
+    border-radius: 5px;
 }
 
 .menuButton,
@@ -37,12 +37,12 @@
 
 .menuButton:hover,
 .addButton > button:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .menuButton:active,
 .addButton > button:active{
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .githubLogo > a > img {
@@ -57,4 +57,8 @@ a > img {
 .githubLogo > a > img:hover{
     width: 35px;
     opacity: .8;
+}
+
+.addButton > button:hover{
+    background-color: var(--bgColorTwo);
 }

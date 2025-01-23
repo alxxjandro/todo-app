@@ -1,5 +1,6 @@
 
-.newProjectContainer {
+.newProjectContainer,
+.newTodoMenu {
     position: absolute;
     top: 50%;
     left: 50%;

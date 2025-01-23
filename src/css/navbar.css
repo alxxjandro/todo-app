@@ -37,12 +37,12 @@
 
 .menuButton:hover,
 .addButton > button:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .menuButton:active,
 .addButton > button:active{
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 .githubLogo > a > img {

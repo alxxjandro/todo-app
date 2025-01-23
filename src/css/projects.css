@@ -1,4 +1,42 @@
 .listTitle{
-    border: solid 1px red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+
+.listTitle > h2{
+    flex: 1;
+    max-width: 500px;
+}
+
+.addTodoBtn{
+    border: dashed 2px white;
+    padding: .5rem;
+    border-radius: 50px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.addTodoBtn:hover{
+    transform: scale(1.05);
+    background-color: var(--bgColorTwo);
+}
+
+.addTodoBtn:active{
+    transform: scale(1.1);
+    background-color: var(--bgColorThree);
+}
+
+.addTodoBtn > button {
+    cursor: pointer;
+    font-size: 1.3rem;
+    padding: 0px;
+    background-color: transparent;
 }
 

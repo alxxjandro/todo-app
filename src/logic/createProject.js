@@ -9,8 +9,9 @@ import images from "../GUI/imgs";
 
 //adds a new list to an array containing all of them
 const addList = function (taskName){
-    const newTask = new list(taskName);
-    dashboardTasks.push(newTask);
+    const newList = new list(taskName);
+    dashboardTasks.push(newList);
+    return newList;
 }
 export default addList;
 

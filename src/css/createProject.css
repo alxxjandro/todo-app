@@ -24,20 +24,22 @@
     font-size: 1.2rem;
 }
 
-div.newProjectTitle + div {
+div.newProjectTitle + div,
+.inputDiv{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-div.newProjectTitle + div > label{
+label{
     opacity: .8;
     text-transform: uppercase;
     font-size: .6rem;
     padding-bottom: .2rem;
 }
 
-input#projectName{  
+input,
+select{  
     padding: .5rem .5rem;
     border: solid 2px var(--bgColorOne);
     border-radius: 10px;
@@ -47,7 +49,8 @@ input#projectName{
     transition: border-color .2s ease;
 }
 
-input#projectName:focus{
+input:focus,
+select:focus{
     border-color: var(--textColor);
 }
 

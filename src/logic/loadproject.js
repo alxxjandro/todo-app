@@ -26,7 +26,10 @@ const createTodoMenu = function (listName){
 
     const contentDiv = document.querySelector(".content");
     const container = Object.assign(document.createElement("div"),{ className : "newTodoMenu"});
-    const textTitle = createElem("h2",[`Adding a new task to ${listName}`],["newProjectTitle"],container);
+    const textTitle = createElem("h2",[`Adding a new task to`],["newProjectTitle"],container);
+    textTitle.appendChild(Object.assign(document.createElement("h2"), { innerText : listName }));
+    
+    //input for task title
     const taskTitle = utils.createInput(
         "Task Name",
         "text",
@@ -36,6 +39,7 @@ const createTodoMenu = function (listName){
         container
     );
 
+    //task description
     const taskDescription = utils.createInput(
         "Task Description",
         "text",
@@ -44,7 +48,9 @@ const createTodoMenu = function (listName){
         "A brief task description...",
         container
     )
+    taskDescription.classList.add("inputDiv");
 
+    //task date
     const taskDate = utils.createInput(
         "Task Date",
         "date",
@@ -53,8 +59,10 @@ const createTodoMenu = function (listName){
         "",
         container
     )
+    taskDate.classList.add("inputDiv");
 
-    const priorities = ["Low","Medium","High"];
+    //priority drop down menu
+    const priorities = ["Select an Option","Low","Medium","High"];
     const selectMenuContainer = document.createElement("div");
     const priorityMenu = Object.assign(document.createElement("select"),{
         textContent : "Select an option", 
@@ -78,6 +86,7 @@ const createTodoMenu = function (listName){
     selectMenuContainer.appendChild(priorityLabel);
     selectMenuContainer.appendChild(priorityMenu);
     container.appendChild(selectMenuContainer);
+    selectMenuContainer.classList.add("inputDiv");
 
 
     //Submit and cancel buttons
@@ -102,20 +111,28 @@ const createTodoMenu = function (listName){
 
     //event listener
     submitBtn.addEventListener("click", () =>{
-        let list = document.querySelector("#TaskName").value;
-        let input = document.querySelector("input");
+        let list = document.querySelector("#TaskName");
+        let inputs = document.querySelectorAll("input");
+        let selectMenu = document.querySelector("select");
 
-        if (!list == ""){
+        if (list !== "" && inputs !== undefined && selectMenu.value !== "Select an Option"){
             console.log(`Adding ${listName} to the list`);
+            return;
         } 
-        input.classList.add("invalid");
+
+        inputs.forEach(input =>{
+            input.classList.add("invalid");
+        })
+        selectMenu.classList.add("invalid");
 
         //flash a red border when an invalid name its provided 
         for (let i = 0; i < 3; i++) {
             setTimeout(() => {
-                input.classList.add("invalid");
+                inputs.forEach(input =>{ input.classList.add("invalid"); })
+                selectMenu.classList.add("invalid");
                 setTimeout(() => {
-                    input.classList.remove("invalid");
+                    inputs.forEach(input =>{ input.classList.remove("invalid"); })
+                    selectMenu.classList.remove("invalid");
                 }, 150); 
             }, i * 300); 
         }

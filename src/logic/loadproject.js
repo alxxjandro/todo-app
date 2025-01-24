@@ -54,16 +54,33 @@ const createTodoMenu = function (listName){
         container
     )
 
-    const priority = utils.createInput(
-        "Task Priority",
-        "select",
-        "TaskPriority",
-        "TaskPriority",
-        "",
-        container
-    )
+    const priorities = ["Low","Medium","High"];
+    const selectMenuContainer = document.createElement("div");
+    const priorityMenu = Object.assign(document.createElement("select"),{
+        textContent : "Select an option", 
+        id : "PriorityLevel",
+        name : "PriorityLevel"
+    });
+    const priorityLabel = Object.assign(document.createElement("label"),{ 
+        htmlFor : "PriorityLevel",
+        textContent : "Task Priority" 
+    });
+
+    priorities.forEach(priority => {
+        priorityMenu.appendChild(
+            Object.assign(document.createElement("option"), {
+                value : priority,
+                innerText : priority
+            })
+        )
+    });
+
+    selectMenuContainer.appendChild(priorityLabel);
+    selectMenuContainer.appendChild(priorityMenu);
+    container.appendChild(selectMenuContainer);
 
 
+    //Submit and cancel buttons
     const btnsContainer = container.appendChild(document.createElement("div"));
     btnsContainer.classList = "btnsContainer";
 

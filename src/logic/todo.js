@@ -101,4 +101,8 @@ export class list {
         return this.#tasks.length;
     }
 
+    get tasks(){
+        return this.#tasks;
+    }
+
 }

@@ -40,11 +40,11 @@ label{
 
 input,
 select{  
+    color: var(--textColor);
     padding: .5rem .5rem;
     border: solid 2px var(--bgColorOne);
     border-radius: 10px;
     background-color: var(--bgColorOne);
-    color: var(--textColor);
     outline: none;
     transition: border-color .2s ease;
 }
@@ -68,6 +68,7 @@ select:focus{
 
 .npBtnInput, 
 .cancelBtnInput {
+    cursor: pointer;
     font-weight: bold;
     width: 6rem;
     padding: .5rem 0rem;
@@ -117,4 +118,8 @@ select:focus{
     background-color: var(--bgColorTwo); /* Azul más vibrante */
     transform: translateY(-5px); /* Efecto de elevación */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: red;
 }

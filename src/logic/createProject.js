@@ -1,12 +1,11 @@
 import createElem, * as utils from "../logic/utilities";
 import { addToDashboard } from "../GUI/createProjectMenu"
-import loadProject from "./loadproject";
-import todo, { list,allTasks } from "../logic/todo";
-import Task from "../logic/todo";
+import loadProject, { addToListGui } from "./loadproject";
+import Task, { list,allTasks } from "../logic/todo";
 import goToDashboard from "./dashboard";
 import images from "../GUI/imgs";
 
-//this modules handles all the functions for the logic about creating and deleting a project
+//this modules handles all the functions for the logic about creating and deleting a project and its todos
 
 //adds a new list to an array containing all of them
 const addList = function (taskName){
@@ -95,3 +94,27 @@ export const refreshIndeces = function () {
 
 //array that contains all the lists
 export const dashboardTasks = [];
+
+
+// logic that manage all the todos of each project
+
+export const addTodo = function (list,taskName, taskDesc, dueDate, taskPrior){
+    let newTask = new Task(taskName,taskDesc,dueDate,taskPrior);
+    list.addTask(newTask);
+    loadTodos(list);
+};
+
+export const loadTodos = function (list) {
+
+    const previousContainer = document.querySelector(".taskContainer");
+    if (previousContainer) previousContainer.remove();
+
+    const container = document.querySelector(".content");
+    const parentDiv = Object.assign(document.createElement("div"),{ className : "taskContainer"});
+    container.appendChild(parentDiv);
+
+    list.tasks.forEach((task, index) => {
+        addToListGui(task,parentDiv,index);
+        console.log(`Task ${task.getTitle} with Index ${index}`);
+    })
+}

@@ -1,5 +1,6 @@
 import createElem, * as utils from "../logic/utilities";
-import { dashboardTasks } from "../logic/createProject"
+import { format } from "date-fns";
+import { dashboardTasks, addTodo, loadTodos } from "../logic/createProject"
 import "../css/projects.css";
 
 const loadProject = function (list){
@@ -17,13 +18,17 @@ const loadProject = function (list){
 
         if(!document.querySelector(".newTodoMenu")){
             console.log(list);
-            createTodoMenu(list.getTitle);
+            createTodoMenu(list.getTitle,list);
         }
     })
+
+    if (list.tasks){
+        loadTodos(list);
+    }
 }
 
-const createTodoMenu = function (listName){
-
+const createTodoMenu = function (listName,listContent){
+    const overlay = document.querySelector(".overlay");
     const contentDiv = document.querySelector(".content");
     const container = Object.assign(document.createElement("div"),{ className : "newTodoMenu"});
     const textTitle = createElem("h2",[`Adding a new task to`],["newProjectTitle"],container);
@@ -59,6 +64,8 @@ const createTodoMenu = function (listName){
         "",
         container
     )
+    const inputDate = taskDate.querySelector("input");
+    inputDate.value = format(new Date(), "yyyy-MM-dd");
     taskDate.classList.add("inputDiv");
 
     //priority drop down menu
@@ -116,8 +123,10 @@ const createTodoMenu = function (listName){
         let selectMenu = document.querySelector("select");
 
         if (list !== "" && inputs !== undefined && selectMenu.value !== "Select an Option"){
-            console.log(`Adding ${listName} to the list`);
-            return;
+            addTodo(listContent,list.value,inputs[1].value,inputs[2].value,selectMenu.value);
+            document.querySelector(".overlay").remove();
+            container.remove();
+            return;       
         } 
 
         inputs.forEach(input =>{
@@ -145,5 +154,15 @@ const createTodoMenu = function (listName){
 
     contentDiv.appendChild(container);
 };
+
+export const addToListGui = function (task,parentDiv,index) {
+    let div = document.createElement("div");
+    let taskTitle = Object.assign(document.createElement("h3"), {
+        innerText : task.getTitle
+    })
+
+    div.appendChild(taskTitle);
+    parentDiv.appendChild(div);
+}
 
 export default loadProject;

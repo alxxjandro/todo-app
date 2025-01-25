@@ -5,14 +5,15 @@ import goToDashboard from "./logic/dashboard";
 import addList from "./logic/createProject";
 import { format, add } from "date-fns";
 import Task from "./logic/todo";
+import loadProject from "./logic/loadproject";
 
 
 const loadDefaults = function (){
     let today = new Date();
     let testList = addList("This is a test list!");
     testList.addTask(new Task("Pretty important activity", "This activity is also a test :)", `${format(add(new Date(), { days: 1 }), "yyyy-MM-dd")}`, "High"));
-    testList.addTask(new Task("Another important task", "This is another dummy activity for testing purposes.", `${format(add(new Date(), { days: 2 }), "yyyy-MM-dd")}`, "Medium"));
     testList.addTask(new Task("Final test task", "This is the last test activity to complete the test list.", `${format(add(new Date(), { days: 3 }), "yyyy-MM-dd")}`, "Low"));
+    testList.addTask(new Task("Another important task", "This is another dummy activity in a month from today, just for testing purposes.", `${format(add(new Date(), { days: 30 }), "yyyy-MM-dd")}`, "Medium"));
 
     let shoppingList = addList("Shopping List");
     shoppingList.addTask(new Task("Buy groceries", "Get milk, eggs, bread, and vegetables.", `${format(add(new Date(), { days: 1 }), "yyyy-MM-dd")}`, "High"));
@@ -25,6 +26,8 @@ const loadDefaults = function (){
     codingProjects.addTask(new Task("Build a To-Do App", "Create a fully functional to-do list app using JavaScript.", `${format(new Date(), "yyyy-MM-dd")}`, "High"));
     codingProjects.addTask(new Task("Debug the weather app", "Fix issues with API integration and improve error handling.", `${format(add(new Date(), { days: 5 }), "yyyy-MM-dd")}`, "Medium"));
     codingProjects.addTask(new Task("Learn a new framework", "Experiment with Vue.js by building a small project.", `${format(add(new Date(), { days: 7 }), "yyyy-MM-dd")}`, "Low"));
+    
+    return testList; // for debugging only
 }
 
 const innitApp = function (){
@@ -33,10 +36,11 @@ const innitApp = function (){
     body.appendChild(sideBar);
     const content = body.appendChild(document.createElement("div"));
     content.classList.add("content");
+    
 
-    //load the default projects and go to the dashboard
-    loadDefaults();
+    let deff = loadDefaults(); //returns the shopping list to load it for coding purposes
     goToDashboard();
+    loadProject(deff); // just for debugging purposes 
 }();
 
 

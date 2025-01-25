@@ -6,6 +6,7 @@ import dashboard from "../icons/dashboard.svg";
 import star from "../icons/star.svg";
 import githubLogo from "../icons/github.svg";
 import trashcan from "../icons/trashcan.svg";
+import edit from "../icons/edit.svg";
 
 const images = {
     addButton,
@@ -15,7 +16,8 @@ const images = {
     dashboard,
     star,
     githubLogo,
-    trashcan
+    trashcan,
+    edit
 }
 
 export default images;

@@ -1,5 +1,6 @@
 import createElem, * as utils from "../logic/utilities";
-import { format } from "date-fns";
+import images from "../GUI/imgs";
+import { format, parseISO, differenceInDays, formatRFC3339 } from "date-fns";
 import { dashboardTasks, addTodo, loadTodos } from "../logic/createProject"
 import "../css/projects.css";
 
@@ -17,7 +18,6 @@ const loadProject = function (list){
         }
 
         if(!document.querySelector(".newTodoMenu")){
-            console.log(list);
             createTodoMenu(list.getTitle,list);
         }
     })
@@ -119,11 +119,12 @@ const createTodoMenu = function (listName,listContent){
     //event listener
     submitBtn.addEventListener("click", () =>{
         let list = document.querySelector("#TaskName");
-        let inputs = document.querySelectorAll("input");
+        let inputs = document.querySelectorAll('.inputDiv > input');
         let selectMenu = document.querySelector("select");
 
+        //scrapping the data and creating the todo if valid
         if (list !== "" && inputs !== undefined && selectMenu.value !== "Select an Option"){
-            addTodo(listContent,list.value,inputs[1].value,inputs[2].value,selectMenu.value);
+            addTodo(listContent,list.value, inputs[0].value ,inputs[1].value,selectMenu.value);
             document.querySelector(".overlay").remove();
             container.remove();
             return;       
@@ -157,11 +158,34 @@ const createTodoMenu = function (listName,listContent){
 
 export const addToListGui = function (task,parentDiv,index) {
     let div = document.createElement("div");
-    let taskTitle = Object.assign(document.createElement("h3"), {
+    div.classList.add("task")
+
+    let checkBtn = Object.assign(document.createElement("input"), { type : "checkbox" });
+    let dueDateGUI = document.createElement("p");
+    let taskTitle = Object.assign(document.createElement("p"), {
         innerText : task.getTitle
     })
 
+    //get the time difference between the due date and 
+    //the current time to determine how to display the time
+    let dueDate = task.getDueDate;
+    let difference = differenceInDays(dueDate,new Date());
+    if (difference > 7){
+        dueDateGUI.innerText = format(new Date(task.getDueDate)," 'Due on' dd-MM-yyyy ");
+    } else {
+        dueDateGUI.innerText = format(new Date(task.getDueDate)," 'Due this' eeee ");
+    }
+
+    //toggle menu
+    const deleteBtn = createElem("button", [], ["taskDelBtn"]);
+    const deleteIcon = document.createElement("img");
+    deleteIcon.src = images.trashcan;
+    deleteBtn.appendChild(deleteIcon);
+
+    div.appendChild(checkBtn);
     div.appendChild(taskTitle);
+    div.appendChild(dueDateGUI);
+    div.appendChild(deleteBtn);
     parentDiv.appendChild(div);
 }
 

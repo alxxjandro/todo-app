@@ -39,3 +39,67 @@
     padding: 0px;
     background-color: transparent;
 }
+
+/* This takes care of the design of each todo on the lists */
+
+.taskContainer {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .5rem;
+}
+
+.taskContainer > div:hover{
+    border: solid 2px var(--bgColorThree);
+    background-color: var(--bgColorThree);
+    transition: border .2s ease, background-color .2s ease;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: solid 2px var(--bgColorThree);
+    border-radius: 15px;
+    min-width: 90%;
+    margin: 0 auto;
+}
+
+.task > p{
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+/* Task title */
+.task > p:first-of-type {
+    flex: 3;
+    padding-left: 1rem;
+    font-weight: bold;
+}
+
+.task > input {
+    appearance: none;
+    position: relative;
+    margin: 0;
+    width: .5em;
+    height: .5em;
+    border: 0.15em solid var(--textColor);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.task > input:checked::after {
+    content: "✔"; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: .7rem;
+}
+
+.taskDelBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

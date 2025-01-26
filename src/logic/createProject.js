@@ -141,3 +141,14 @@ export const loadTodos = function (list) {
         console.log(`Task ${task.getTitle} with Index ${index}`);
     })
 }
+
+export const checkTask = function(list, task){
+    let index = list.tasks.indexOf(task);
+    let div = document.querySelector(`.index-${index}`);
+
+    console.log(list.tasks[index].isChecked());
+    list.tasks[index].toggleCheck();
+    console.log(list.tasks[index].isChecked());
+    
+    div.classList.toggle("checked");
+}

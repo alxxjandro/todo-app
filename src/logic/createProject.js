@@ -105,6 +105,28 @@ export const addTodo = function (list,taskName, taskDesc, dueDate, taskPrior){
     loadTodos(list);
 };
 
+export const reloadTaskIndices = function (list){
+    if (list.tasks.length){
+        const tasks = document.querySelectorAll(".task");
+        tasks.forEach((task,index) => {
+            task.classList = 'task';
+            task.classList.add(`index-${index}`);
+            console.log(task, index);
+        })
+    }
+}
+
+export const deleteTodo = function (list,task){
+    let index = list.tasks.indexOf(task);
+    let div = document.querySelector(`.index-${index}`);
+
+    list.tasks.splice(index,1) //remove from the array
+    div.remove(); //remove from the DOM
+
+    //reload with the correct index
+    reloadTaskIndices(list);
+}
+
 export const loadTodos = function (list) {
 
     const previousContainer = document.querySelector(".taskContainer");
@@ -113,9 +135,9 @@ export const loadTodos = function (list) {
     const container = document.querySelector(".content");
     const parentDiv = Object.assign(document.createElement("div"),{ className : "taskContainer"});
     container.appendChild(parentDiv);
-
+    
     list.tasks.forEach((task, index) => {
-        addToListGui(task,parentDiv,index);
+        addToListGui(task,parentDiv,index,list);
         console.log(`Task ${task.getTitle} with Index ${index}`);
     })
 }

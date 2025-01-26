@@ -1,7 +1,7 @@
 import createElem, * as utils from "../logic/utilities";
 import images from "../GUI/imgs";
 import { format, parseISO, differenceInDays, formatRFC3339 } from "date-fns";
-import { dashboardTasks, addTodo, loadTodos } from "../logic/createProject"
+import { dashboardTasks, addTodo, loadTodos, deleteTodo } from "../logic/createProject"
 import "../css/projects.css";
 
 const loadProject = function (list){
@@ -156,9 +156,11 @@ const createTodoMenu = function (listName,listContent){
     contentDiv.appendChild(container);
 };
 
-export const addToListGui = function (task,parentDiv,index) {
+//handles adding a todo to a given list
+export const addToListGui = function (task,parentDiv,index,list) {
     let div = document.createElement("div");
     div.classList.add("task")
+    div.classList.add(`index-${index}`);
 
     let checkBtn = Object.assign(document.createElement("input"), { type : "checkbox" });
     let dueDateGUI = document.createElement("p");
@@ -176,11 +178,16 @@ export const addToListGui = function (task,parentDiv,index) {
         dueDateGUI.innerText = format(new Date(task.getDueDate)," 'Due this' eeee ");
     }
 
-    //toggle menu
+    //delete a todo btn
     const deleteBtn = createElem("button", [], ["taskDelBtn"]);
     const deleteIcon = document.createElement("img");
     deleteIcon.src = images.trashcan;
     deleteBtn.appendChild(deleteIcon);
+
+    //deleting logic 
+    deleteBtn.addEventListener("click", () =>{
+        deleteTodo(list,task);
+    })
 
     div.appendChild(checkBtn);
     div.appendChild(taskTitle);

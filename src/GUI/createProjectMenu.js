@@ -50,7 +50,7 @@ const createProject = function (){
 
     //create a new div with the task name, 
     //append it to the array that holds all 
-    //of them and added to the dashboard and sidebar
+    //of them and add it to the dashboard and sidebar
     submitBtn.addEventListener("click", () =>{
         let list = document.querySelector("#projectName").value;
         let input = document.querySelector("input");
@@ -85,8 +85,6 @@ const createProject = function (){
 //also handles adding the button to the sidebar as well (last line)
 export const addToDashboard = function (list,div,index) {
     
-    //gotta handle the case when projects contain spaces, maybe with passing the index 
-    //and using that as the task- class and not the name.
     console.log(`INDEX -> ${index}`);
     
     let component = createElem("h3",[`${list.getTitle}`],["taskContent",`task-${index}`],div);

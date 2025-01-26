@@ -1,7 +1,7 @@
 import createElem, * as utils from "../logic/utilities";
 import images from "../GUI/imgs";
 import { format, parseISO, differenceInDays, formatRFC3339 } from "date-fns";
-import { dashboardTasks, addTodo, loadTodos, deleteTodo, checkTask } from "../logic/createProject"
+import { dashboardTasks, addTodo, loadTodos, deleteTodo, checkTask, loadTaskInfo } from "../logic/createProject"
 import "../css/projects.css";
 
 const loadProject = function (list){
@@ -190,14 +190,21 @@ export const addToListGui = function (task,parentDiv,index,list) {
     })
 
     //check button logic, and making sure they stay checked
-
     if (task.isChecked()){
         div.classList.add("checked");
         checkBtn.checked = true;
     }
-
-    checkBtn.addEventListener("click", () =>{
+    checkBtn.addEventListener("click", (event) =>{
+        event.stopPropagation();
         checkTask(list,task);
+    })
+
+    //logic for loading the task info when clicked
+    div.addEventListener("click", () =>{
+        loadTaskInfo(task);
+        document.body.appendChild( //load the background blur
+            Object.assign(document.createElement("div"),{ className : "overlay" })
+        );
     })
 
     div.appendChild(checkBtn);

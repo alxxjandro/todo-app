@@ -111,3 +111,72 @@
     background-color: rgba(255, 255, 255, 0.062);
 }
 
+.taskInfoContainer {
+    position: absolute;
+    max-width: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    padding: 2rem;
+
+    background-color: var(--bgColorTwo);
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+
+.topPart{
+    display: flex;
+    font-size: .9rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.topPart > .taskInfoTitle{
+    flex: 1;
+    text-align: center;
+}
+
+.closeBtnInput{
+    font-weight: bold;
+    padding: 0;
+    font-size: .9rem;
+    width: 2rem;
+    height: 2rem;
+
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    background-color: var(--bgColorOne);
+}
+
+.middlePart{
+    padding: 1rem;
+}
+
+.taskDescriptionInfo,
+.taskDueDate,
+.taskPriority{
+    margin-bottom: 1rem; 
+
+}
+
+.taskDescriptionInfo > p:first-of-type,
+.taskDueDate > p:first-of-type,
+.taskPriority > p:first-of-type{
+    opacity: .8;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .6rem;
+    padding-bottom: .2rem;
+}
+
+.taskDescription{
+    opacity: .8;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .75rem; 
+    padding: .2rem .2rem .2rem 0;
+}

@@ -12,7 +12,7 @@ const loadDefaults = function (){
     let today = new Date();
     let testList = addList("This is a test list!");
     testList.addTask(new Task("Pretty important activity", "This activity is also a test :)", `${format(add(new Date(), { days: 1 }), "yyyy-MM-dd")}`, "High"));
-    testList.addTask(new Task("Final test task", "This is the last test activity to complete the test list.", `${format(add(new Date(), { days: 3 }), "yyyy-MM-dd")}`, "Low"));
+    testList.addTask(new Task("Final test task", "This is another test activity to fill this To-Do with some task!.", `${format(add(new Date(), { days: 3 }), "yyyy-MM-dd")}`, "Low"));
     testList.addTask(new Task("Another important task", "This is another dummy activity in a month from today, just for testing purposes.", `${format(add(new Date(), { days: 30 }), "yyyy-MM-dd")}`, "Medium"));
 
     let shoppingList = addList("Shopping List");
@@ -40,7 +40,7 @@ const innitApp = function (){
 
     let deff = loadDefaults(); //returns the shopping list to load it for coding purposes
     goToDashboard();
-    loadProject(deff); // just for debugging purposes 
+    //loadProject(deff); // just for debugging purposes 
 }();
 
 

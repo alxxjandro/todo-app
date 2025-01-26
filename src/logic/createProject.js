@@ -113,7 +113,6 @@ export const reloadTaskIndices = function (list){
             task.classList.add(`index-${index}`);
 
             if(list.tasks[index].isChecked()) task.classList.add("checked");
-
             console.log(task, index);
         })
     }
@@ -154,4 +153,34 @@ export const checkTask = function(list, task){
     console.log(list.tasks[index].isChecked());
     
     div.classList.toggle("checked");
+}
+
+export const loadTaskInfo = function (task){
+    console.log("clicked on ->",task.getTitle);
+    const contentDiv = document.querySelector(".content");
+    const container = Object.assign(document.createElement("div"),{ className : "taskInfoContainer"});
+
+
+    const topPart = Object.assign(document.createElement("div"), {className : "topPart"});
+    const textTitle = createElem("h2",[`${task.getTitle}`],["taskInfoTitle"],topPart);
+    const closeBtn = topPart.appendChild(
+        Object.assign(document.createElement("button"),{
+            innerText : "X" ,
+            className : "closeBtnInput" , 
+        })
+    )
+    closeBtn.addEventListener("click", () => {
+        container.remove();
+        document.querySelector(".overlay").remove();
+    })
+    container.appendChild(topPart);
+
+
+    const middlePart = Object.assign(document.createElement("div"), {className : "middlePart"});
+    const taskDescp = createElem("p",['TASK DESCRIPTION',`${task.getDescription}`],['taskDescriptionInfo'],middlePart);
+    const taskDueDate = createElem("p",['TASK DUE DATE',`${task.getDueDate}`],['taskDueDate'],middlePart);
+    const taskPriority = createElem("p",['TASK PRIORITY',`${task.getPriority}`],['taskPriority'],middlePart);
+    container.appendChild(middlePart);
+
+    contentDiv.appendChild(container);
 }

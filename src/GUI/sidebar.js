@@ -26,8 +26,8 @@ const sideBar = (function () {
 
     //  Buttons
     const dashboardBtn = createButtonWithImage("Dashboard", "dashboardBtn", images.dashboard, container);
-    const upcomingBtn = createButtonWithImage("Upcoming", "todayBtn", images.calendar, container);
-    const importantBtn = createButtonWithImage("Important", "importantBtn", images.star, container);
+    //const upcomingBtn = createButtonWithImage("Upcoming", "todayBtn", images.calendar, container);
+    //const importantBtn = createButtonWithImage("Important", "importantBtn", images.star, container);
     const addProjectBtn = createElem("button", ["Create Project"], ["addProject"], container);
    
     // Projects section
@@ -41,8 +41,8 @@ const sideBar = (function () {
 
     // Buttons event listeners
     utils.addButtonListener(dashboardBtn, goToDashboard);
-    utils.addButtonListener(upcomingBtn,goToUpcoming);
-    utils.addButtonListener(importantBtn,goToImportant);
+    //utils.addButtonListener(upcomingBtn,goToUpcoming);
+    //utils.addButtonListener(importantBtn,goToImportant);
     
     //sideBar + button for adding new projects
     addProjectBtn.addEventListener("click", () =>{

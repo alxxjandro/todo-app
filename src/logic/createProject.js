@@ -111,6 +111,9 @@ export const reloadTaskIndices = function (list){
         tasks.forEach((task,index) => {
             task.classList = 'task';
             task.classList.add(`index-${index}`);
+
+            if(list.tasks[index].isChecked()) task.classList.add("checked");
+
             console.log(task, index);
         })
     }

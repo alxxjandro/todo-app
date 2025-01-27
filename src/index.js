@@ -9,6 +9,8 @@ import loadProject from "./logic/loadproject";
 
 
 const loadDefaults = function (){
+
+    
     let today = new Date();
     let testList = addList("This is a test list!");
     testList.addTask(new Task("Pretty important activity", "This activity is also a test :)", `${format(add(new Date(), { days: 1 }), "yyyy-MM-dd")}`, "High"));
@@ -26,8 +28,6 @@ const loadDefaults = function (){
     codingProjects.addTask(new Task("Build a To-Do App", "Create a fully functional to-do list app using JavaScript.", `${format(new Date(), "yyyy-MM-dd")}`, "High"));
     codingProjects.addTask(new Task("Debug the weather app", "Fix issues with API integration and improve error handling.", `${format(add(new Date(), { days: 5 }), "yyyy-MM-dd")}`, "Medium"));
     codingProjects.addTask(new Task("Learn a new framework", "Experiment with Vue.js by building a small project.", `${format(add(new Date(), { days: 7 }), "yyyy-MM-dd")}`, "Low"));
-    
-    return testList; // for debugging only
 }
 
 const innitApp = function (){
@@ -38,9 +38,8 @@ const innitApp = function (){
     content.classList.add("content");
     
 
-    let deff = loadDefaults(); //returns the shopping list to load it for coding purposes
+    loadDefaults(); 
     goToDashboard();
-    //loadProject(deff); // just for debugging purposes 
 }();
 
 

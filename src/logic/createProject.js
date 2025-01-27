@@ -5,14 +5,16 @@ import Task, { list,allTasks } from "../logic/todo";
 import goToDashboard from "./dashboard";
 import images from "../GUI/imgs";
 
-//this modules handles all the functions for the logic about creating and deleting a project and its todos
+//array that contains all the lists
+export const dashboardTasks = [];
 
+//this modules handles all the functions for the logic about creating and deleting a project and its todos
 //adds a new list to an array containing all of them
-const addList = function (taskName){
-    const newList = new list(taskName);
+const addList = function (listName) {
+    const newList = new list(listName);
     dashboardTasks.push(newList);
     return newList;
-}
+};
 export default addList;
 
 //deletes the list from the global array of lists
@@ -91,11 +93,6 @@ export const refreshIndeces = function () {
         console.log("There is no project to refresh indices for.");
     }
 };
-
-
-//array that contains all the lists
-export const dashboardTasks = [];
-
 
 // logic that manage all the todos of each project
 
